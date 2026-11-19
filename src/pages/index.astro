@@ -95,4 +95,61 @@ const areas = [
       <div class="credit">Desenvolvido por <a href={rsa} target="_blank" rel="noopener noreferrer">RSA Digital</a></div>
     </div>
   </main>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LegalService",
+    "@id": "https://sorianoefreitas.vercel.app/#legalservice",
+    "name": "Soriano e Freitas Advocacia",
+    "url": "https://sorianoefreitas.vercel.app/",
+    "image": "https://sorianoefreitas.vercel.app/images/soriano-hero.jpg",
+    "telephone": "+55-13-98184-0502",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Antonio Miguel dos Santo, 95, Sala 1",
+      "addressLocality": "Guarujá",
+      "addressRegion": "SP",
+      "postalCode": "11431-050",
+      "addressCountry": "BR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -23.992374478505955,
+      "longitude": -46.27989952465682
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Guarujá",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "São Paulo"
+      }
+    },
+    "sameAs": [
+      "https://www.instagram.com/soriano.advocacia/"
+    ],
+    "knowsAbout": [
+      "Regularização de imóveis",
+      "Direito Imobiliário",
+      "Direito de Família",
+      "Direito do Consumidor",
+      "Direito Bancário",
+      "Direito Administrativo",
+      "Concursos públicos"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Áreas de atuação jurídica",
+      "itemListElement": [
+        "Regularização de imóveis e Direito Imobiliário",
+        "Direito de Família",
+        "Direito do Consumidor",
+        "Direito Bancário",
+        "Direito Administrativo",
+        "Direito dos Concursos Públicos"
+      ].map((name) => ({
+        "@type": "OfferCatalog",
+        "name": name
+      }))
+    }
+  })} />
 </BaseLayout>
