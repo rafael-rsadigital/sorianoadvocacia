@@ -116,14 +116,6 @@ const areas = [
       "latitude": -23.992374478505955,
       "longitude": -46.27989952465682
     },
-    "areaServed": {
-      "@type": "City",
-      "name": "Guarujá",
-      "containedInPlace": {
-        "@type": "State",
-        "name": "São Paulo"
-      }
-    },
     "sameAs": [
       "https://www.instagram.com/soriano.advocacia/"
     ],
@@ -147,8 +139,11 @@ const areas = [
         "Direito Administrativo",
         "Direito dos Concursos Públicos"
       ].map((name) => ({
-        "@type": "OfferCatalog",
-        "name": name
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": name
+        }
       }))
     }
   })} />
