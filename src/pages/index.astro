@@ -2,69 +2,81 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const phone = '5513981840502';
-const message = (topic: string) => `https://wa.me/${phone}?text=${encodeURIComponent('Oi! Vim pelo link da Soriano e Freitas e gostaria de informações sobre ' + topic + '.')}`;
-const whatsapp = message('os serviços jurídicos');
+const topicLink = (topic: string) => 'https://wa.me/' + phone + '?text=' + encodeURIComponent('Olá! Vim pelo link da Soriano e Freitas e gostaria de informações sobre ' + topic + '.');
+const whatsapp = 'https://wa.me/' + phone + '?text=' + encodeURIComponent('Olá! Vim pelo link da Soriano e Freitas e gostaria de mais informações.');
 const instagram = 'https://www.instagram.com/soriano.advocacia/';
+const maps = 'https://www.google.com/maps/search/?api=1&query=Soriano%20e%20Freitas%20Jur%C3%ADdico%2C%20Guaruj%C3%A1';
 const mapEmbed = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3645.09635098782!2d-46.27989952465682!3d-23.992374478505955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94d1ffaffc279671%3A0x33eb9aeb2e612b92!2sSoriano%20e%20Freitas%20Juridico!5e0!3m2!1spt-BR!2sbr!4v1795058185974!5m2!1spt-BR!2sbr';
-const maps = 'https://www.google.com/maps/search/?api=1&query=Soriano%20e%20Freitas%20Juridico';
-const rsa = 'https://wa.me/5513988507195?text=' + encodeURIComponent('Olá, Rafael! Vim pelo site da Soriano e Freitas e gostaria de falar sobre um projeto digital.');
-const links = [
-  { title: 'Regularização de imóveis', subtitle: 'Direito imobiliário', href: message('regularização de imóveis'), icon: '⌂', featured: true },
-  { title: 'Direito de Família', subtitle: 'Questões familiares', href: message('Direito de Família'), icon: '♡' },
-  { title: 'Direito do Consumidor', subtitle: 'Relações de consumo', href: message('Direito do Consumidor'), icon: '◇' },
-  { title: 'Direito Bancário', subtitle: 'Relações com instituições financeiras', href: message('Direito Bancário'), icon: '▤' },
-  { title: 'Direito Administrativo', subtitle: 'Demandas com a Administração Pública', href: message('Direito Administrativo'), icon: '§' },
-  { title: 'Concursos Públicos', subtitle: 'Aprovados, nomeação e etapas do certame', href: message('questões relacionadas a concursos públicos'), icon: '✳' },
+const rsa = 'https://wa.me/5513988507195?text=' + encodeURIComponent('Olá! Vim pelo site da Soriano e Freitas e gostaria de falar sobre um projeto digital.');
+const areas = [
+  { title: 'Regularização de Imóveis', href: topicLink('regularização de imóveis'), icon: 'home' },
+  { title: 'Direito de Família', href: topicLink('Direito de Família'), icon: 'family' },
+  { title: 'Direito do Consumidor', href: topicLink('Direito do Consumidor'), icon: 'cart' },
+  { title: 'Direito Bancário', href: topicLink('Direito Bancário'), icon: 'bank' },
+  { title: 'Direito Administrativo', href: topicLink('Direito Administrativo'), icon: 'court' },
+  { title: 'Direito dos Concursos Públicos', href: topicLink('questões de concursos públicos, nomeação e posse'), icon: 'trophy' },
 ];
 ---
-<BaseLayout title="Escritório de Advocacia em Guarujá | Soriano e Freitas" description="Soriano e Freitas, escritório de advocacia em Guarujá. Direito Imobiliário, regularização de imóveis e outras áreas de atuação.">
+<BaseLayout title="Soriano e Freitas | Escritório de Advocacia em Guarujá" description="Soriano e Freitas Advocacia em Guarujá. Regularização de imóveis, Direito Imobiliário, Família, Consumidor, Bancário, Administrativo e Concursos Públicos.">
   <main class="link-page">
-    <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+    <div class="page-bg" aria-hidden="true"></div>
     <div class="link-container">
       <header class="profile">
-        <div class="monogram" aria-label="Soriano e Freitas"><span>S</span><i>&</i><span>F</span></div>
-        <p class="firm-name">SORIANO <span>&</span> FREITAS</p>
-        <p class="firm-type">A D V O C A C I A</p>
-        <span class="profile-divider"></span>
-        <h1>Escritório de Advocacia <em>em Guarujá</em></h1>
-        <p class="profile-description">Orientação jurídica com seriedade e proximidade. Conheça nossos canais e áreas de atuação.</p>
+        <div class="brand-mark" aria-label="Monograma Soriano e Freitas">
+          <svg viewBox="0 0 180 142" role="img" aria-hidden="true">
+            <text x="42" y="89" class="mark-s">S</text><text x="84" y="111" class="mark-f">F</text>
+            <path d="M12 104 C49 48 105 33 165 48 C118 34 61 52 12 104Z" class="mark-swoosh"/>
+          </svg>
+        </div>
+        <p class="firm-name">SORIANO E FREITAS</p>
+        <div class="firm-type"><span></span> A D V O C A C I A <span></span></div>
+        <h1>Escritório de Advocacia<br/>em Guarujá</h1>
+        <p class="profile-description">Soluções jurídicas com foco em seus direitos.</p>
+        <span class="gold-rule"></span>
       </header>
 
-      <nav class="main-links" aria-label="Canais de contato">
-        <a class="link-button primary" href={whatsapp} target="_blank" rel="noopener noreferrer">
-          <span class="button-icon whatsapp-icon">◔</span><span class="button-copy"><strong>Fale pelo WhatsApp</strong><small>Atendimento direto com o escritório</small></span><span class="arrow">↗</span>
+      <nav class="main-links" aria-label="Canais oficiais">
+        <a class="link-button social-button" href={whatsapp} target="_blank" rel="noopener noreferrer" aria-label="Fale conosco pelo WhatsApp">
+          <span class="social-icon whatsapp">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3.2A12.5 12.5 0 0 0 5.2 22.1L3.6 28l6.1-1.6A12.5 12.5 0 1 0 16 3.2Z"/><path d="M12.1 10.2c-.4-.8-.8-.8-1.2-.8h-1c-.4 0-.9.2-1.3.7-.5.5-1.7 1.7-1.7 4.1s1.8 4.8 2 5.1c.2.3 3.5 5.6 8.6 7.6 4.2 1.7 5.1 1.4 6 .9.9-.4 2.8-1.2 3.2-2.4.4-1.2.4-2.2.3-2.4-.1-.2-.5-.4-1-.7-.5-.2-2.8-1.4-3.2-1.5-.4-.2-.8-.2-1.1.3-.3.5-1.3 1.5-1.6 1.8-.3.3-.6.4-1.1.1-.5-.2-2-0.7-3.8-2.3-1.4-1.2-2.3-2.7-2.6-3.2-.3-.5 0-.8.2-1.1.2-.2.5-.6.7-.9.2-.3.3-.5.5-.8.2-.3.1-.6 0-.9-.1-.2-1-2.5-1.4-3.4Z"/></svg>
+          </span><span class="button-divider"></span><span class="button-title">Fale Conosco pelo WhatsApp</span><span class="button-arrow">›</span>
         </a>
-        <a class="link-button" href={instagram} target="_blank" rel="noopener noreferrer">
-          <span class="button-icon instagram-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></span><span class="button-copy"><strong>Instagram</strong><small>Acompanhe nossos conteúdos</small></span><span class="arrow">↗</span>
+        <a class="link-button social-button" href={instagram} target="_blank" rel="noopener noreferrer" aria-label="Nosso Instagram">
+          <span class="social-icon instagram">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="4" width="24" height="24" rx="7"/><circle cx="16" cy="16" r="5.5"/><circle cx="23.5" cy="8.8" r="1.5" class="insta-dot"/></svg>
+          </span><span class="button-divider"></span><span class="button-title">Nosso Instagram</span><span class="button-arrow">›</span>
         </a>
-        <a class="link-button" href={maps} target="_blank" rel="noopener noreferrer">
-          <span class="button-icon map-icon">⌖</span><span class="button-copy"><strong>Como chegar</strong><small>Localização no Google Maps</small></span><span class="arrow">↗</span>
+        <a class="link-button social-button" href={maps} target="_blank" rel="noopener noreferrer" aria-label="Nosso endereço no Google Maps">
+          <span class="social-icon maps-icon">
+            <svg viewBox="0 0 32 38" aria-hidden="true"><path fill="#4285F4" d="M16 1.5C7.9 1.5 2 7.6 2 15.3c0 9.5 14 21.2 14 21.2s14-11.7 14-21.2C30 7.6 24.1 1.5 16 1.5Z"/><path fill="#34A853" d="M16 36.5S2 24.8 2 15.3c0-3.1 1-5.9 2.8-8l11.2 8.1Z"/><path fill="#FBBC04" d="M4.8 7.3A13.5 13.5 0 0 1 16 1.5v13.9Z"/><path fill="#EA4335" d="M16 1.5c4.7 0 8.6 2.2 11.1 5.8L16 15.4Z"/><circle cx="16" cy="15" r="5.1" fill="#174B45"/></svg>
+          </span><span class="button-divider"></span><span class="button-title">Nosso Endereço no Google Maps</span><span class="button-arrow">›</span>
         </a>
       </nav>
 
       <section class="areas" aria-labelledby="areas-title">
-        <div class="section-label"><span></span><h2 id="areas-title">FALE SOBRE SUA NECESSIDADE</h2><span></span></div>
-        <div class="area-links">
-          {links.map((link) => <a class:list={['link-button', 'area-button', link.featured && 'area-featured']} href={link.href} target="_blank" rel="noopener noreferrer">
-            <span class="button-icon area-icon">{link.icon}</span><span class="button-copy"><strong>{link.title}</strong><small>{link.subtitle}</small></span><span class="arrow">↗</span>
+        <div class="section-label"><span></span><h2 id="areas-title">NOSSAS ÁREAS DE ATUAÇÃO</h2><span></span></div>
+        <div class="area-grid">
+          {areas.map((area) => <a class="link-button area-button" href={area.href} target="_blank" rel="noopener noreferrer">
+            <span class="area-icon" aria-hidden="true">
+              {area.icon === 'home' && <svg viewBox="0 0 32 32"><path d="M3 14.5 16 4l13 10.5M7 12v16h7V18h5v10h6V12"/></svg>}
+              {area.icon === 'family' && <svg viewBox="0 0 32 32"><circle cx="16" cy="8" r="4"/><circle cx="6.5" cy="12" r="3"/><circle cx="25.5" cy="12" r="3"/><path d="M8 28v-5a8 8 0 0 1 16 0v5M1.5 27v-4a5 5 0 0 1 5-5h2M30.5 27v-4a5 5 0 0 0-5-5h-2"/></svg>}
+              {area.icon === 'cart' && <svg viewBox="0 0 32 32"><path d="M3 5h4l3.2 17h16.5l3-12H8M12 27h.1M24 27h.1"/><circle cx="12" cy="27" r="1.8"/><circle cx="24" cy="27" r="1.8"/></svg>}
+              {area.icon === 'bank' && <svg viewBox="0 0 32 32"><path d="m3 11 13-7 13 7H3ZM5 27h22M7 12v13M13 12v13M19 12v13M25 12v13M3 29h26"/></svg>}
+              {area.icon === 'court' && <svg viewBox="0 0 32 32"><path d="m3 10 13-7 13 7H3ZM5 12v14M11 12v14M21 12v14M27 12v14M3 28h26M3 31h26M16 12v14"/></svg>}
+              {area.icon === 'trophy' && <svg viewBox="0 0 32 32"><path d="M10 4h12v8a6 6 0 0 1-12 0V4ZM10 7H4v4a6 6 0 0 0 6 6M22 7h6v4a6 6 0 0 1-6 6M16 18v7M10 28h12M12 25h8"/></svg>}
+            </span><span class="area-title">{area.title}</span><span class="button-arrow">›</span>
           </a>)}
         </div>
       </section>
 
       <section class="map-section" aria-label="Localização do escritório">
-        <div class="section-label"><span></span><h2>ENCONTRE O ESCRITÓRIO</h2><span></span></div>
-        <div class="map-frame"><iframe src={mapEmbed} title="Mapa de localização da Soriano e Freitas Jurídico em Guarujá" width="600" height="450" style="border:0" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-        <a class="map-link" href={maps} target="_blank" rel="noopener noreferrer">Abrir localização no Google Maps ↗</a>
+        <div class="map-frame"><iframe src={mapEmbed} title="Localização da Soriano e Freitas Jurídico em Guarujá" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
       </section>
 
       <footer class="page-footer">
-        <p class="footer-brand">SORIANO <span>&</span> FREITAS · ADVOCACIA</p>
-        <address class="nap">
-          <strong>Soriano e Freitas Advocacia</strong>
-          <span>Guarujá – SP</span>
-          <a href="tel:+5513981840502">(13) 98184-0502</a>
-        </address>
-        <small>O conteúdo desta página é informativo. Cada situação exige análise individual.</small>
+        <div class="footer-address"><span class="footer-pin">⌖</span><address>Av. Adhemar de Barros, 1060 – Sala 12<br/>Jardim Helena Maria, Guarujá – SP</address></div>
+        <span class="footer-separator"></span>
+        <a class="footer-phone" href="tel:+5513981840502"><span class="phone-symbol">♧</span><span><strong>(13) 98184-0502</strong><small>Atendimento via WhatsApp</small></span></a>
       </footer>
       <div class="credit">Desenvolvido por <a href={rsa} target="_blank" rel="noopener noreferrer">RSA Digital</a></div>
     </div>
