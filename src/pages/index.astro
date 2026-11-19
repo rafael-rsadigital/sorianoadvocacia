@@ -5,18 +5,19 @@ const phone = '5513981840502';
 const message = (topic: string) => `https://wa.me/${phone}?text=${encodeURIComponent('Oi! Vim pelo link da Soriano e Freitas e gostaria de informações sobre ' + topic + '.')}`;
 const whatsapp = message('os serviços jurídicos');
 const instagram = 'https://www.instagram.com/soriano.advocacia/';
+const mapEmbed = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3645.09635098782!2d-46.27989952465682!3d-23.992374478505955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94d1ffaffc279671%3A0x33eb9aeb2e612b92!2sSoriano%20e%20Freitas%20Juridico!5e0!3m2!1spt-BR!2sbr!4v1795058185974!5m2!1spt-BR!2sbr';
 const maps = 'https://www.google.com/maps/search/?api=1&query=Soriano%20e%20Freitas%20Juridico';
-
+const rsa = 'https://wa.me/5513988507195?text=' + encodeURIComponent('Olá, Rafael! Vim pelo site da Soriano e Freitas e gostaria de falar sobre um projeto digital.');
 const links = [
   { title: 'Regularização de imóveis', subtitle: 'Direito imobiliário', href: message('regularização de imóveis'), icon: '⌂', featured: true },
-  { title: 'Direito de Família', subtitle: 'Orientação para questões familiares', href: message('Direito de Família'), icon: '♡' },
-  { title: 'Direito do Consumidor', subtitle: 'Relações de consumo e direitos', href: message('Direito do Consumidor'), icon: '◇' },
-  { title: 'Direito Bancário', subtitle: 'Questões com bancos e instituições financeiras', href: message('Direito Bancário'), icon: '▤' },
-  { title: 'Direito Administrativo', subtitle: 'Demandas envolvendo a Administração Pública', href: message('Direito Administrativo'), icon: '§' },
+  { title: 'Direito de Família', subtitle: 'Questões familiares', href: message('Direito de Família'), icon: '♡' },
+  { title: 'Direito do Consumidor', subtitle: 'Relações de consumo', href: message('Direito do Consumidor'), icon: '◇' },
+  { title: 'Direito Bancário', subtitle: 'Relações com instituições financeiras', href: message('Direito Bancário'), icon: '▤' },
+  { title: 'Direito Administrativo', subtitle: 'Demandas com a Administração Pública', href: message('Direito Administrativo'), icon: '§' },
   { title: 'Concursos Públicos', subtitle: 'Aprovados, nomeação e etapas do certame', href: message('questões relacionadas a concursos públicos'), icon: '✳' },
 ];
 ---
-<BaseLayout title="Soriano e Freitas | Acesse nossos canais" description="Acesse os canais de atendimento da Soriano e Freitas Advocacia. Direito Imobiliário, regularização de imóveis e outras áreas de atuação.">
+<BaseLayout title="Escritório de Advocacia em Guarujá | Soriano e Freitas" description="Soriano e Freitas, escritório de advocacia em Guarujá. Direito Imobiliário, regularização de imóveis e outras áreas de atuação.">
   <main class="link-page">
     <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
     <div class="link-container">
@@ -25,8 +26,8 @@ const links = [
         <p class="firm-name">SORIANO <span>&</span> FREITAS</p>
         <p class="firm-type">A D V O C A C I A</p>
         <span class="profile-divider"></span>
-        <h1>Conecte-se com<br/><em>nosso escritório.</em></h1>
-        <p class="profile-description">Informação e orientação jurídica para decisões mais seguras.</p>
+        <h1>Escritório de Advocacia <em>em Guarujá</em></h1>
+        <p class="profile-description">Orientação jurídica com seriedade e proximidade. Conheça nossos canais e áreas de atuação.</p>
       </header>
 
       <nav class="main-links" aria-label="Canais de contato">
@@ -37,23 +38,35 @@ const links = [
           <span class="button-icon instagram-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></span><span class="button-copy"><strong>Instagram</strong><small>Acompanhe nossos conteúdos</small></span><span class="arrow">↗</span>
         </a>
         <a class="link-button" href={maps} target="_blank" rel="noopener noreferrer">
-          <span class="button-icon map-icon">⌖</span><span class="button-copy"><strong>Como chegar</strong><small>Localização do escritório no Google Maps</small></span><span class="arrow">↗</span>
+          <span class="button-icon map-icon">⌖</span><span class="button-copy"><strong>Como chegar</strong><small>Localização no Google Maps</small></span><span class="arrow">↗</span>
         </a>
       </nav>
 
       <section class="areas" aria-labelledby="areas-title">
         <div class="section-label"><span></span><h2 id="areas-title">FALE SOBRE SUA NECESSIDADE</h2><span></span></div>
         <div class="area-links">
-          {links.map((link) => <a class:list={['link-button area-button', link.featured && 'area-featured']} href={link.href} target="_blank" rel="noopener noreferrer">
+          {links.map((link) => <a class:list={['link-button', 'area-button', link.featured && 'area-featured']} href={link.href} target="_blank" rel="noopener noreferrer">
             <span class="button-icon area-icon">{link.icon}</span><span class="button-copy"><strong>{link.title}</strong><small>{link.subtitle}</small></span><span class="arrow">↗</span>
           </a>)}
         </div>
       </section>
 
+      <section class="map-section" aria-label="Localização do escritório">
+        <div class="section-label"><span></span><h2>ENCONTRE O ESCRITÓRIO</h2><span></span></div>
+        <div class="map-frame"><iframe src={mapEmbed} title="Mapa de localização da Soriano e Freitas Jurídico em Guarujá" width="600" height="450" style="border:0" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        <a class="map-link" href={maps} target="_blank" rel="noopener noreferrer">Abrir localização no Google Maps ↗</a>
+      </section>
+
       <footer class="page-footer">
-        <p>SORIANO <span>&</span> FREITAS · ADVOCACIA</p>
+        <p class="footer-brand">SORIANO <span>&</span> FREITAS · ADVOCACIA</p>
+        <address class="nap">
+          <strong>Soriano e Freitas Advocacia</strong>
+          <span>Guarujá – SP</span>
+          <a href="tel:+5513981840502">(13) 98184-0502</a>
+        </address>
         <small>O conteúdo desta página é informativo. Cada situação exige análise individual.</small>
       </footer>
+      <div class="credit">Desenvolvido por <a href={rsa} target="_blank" rel="noopener noreferrer">RSA Digital</a></div>
     </div>
   </main>
 </BaseLayout>
