@@ -1,3 +1,5 @@
-# Soriano e Freitas — Centralizador de links
+# Soriano Advocacia — Site institucional
 
-Site institucional compacto desenvolvido em Astro.
+Site institucional desenvolvido em Astro, com informações de contato, áreas de atuação e localização do escritório.
+
+Site: https://sorianoadvocacia.vercel.app/
