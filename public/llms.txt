@@ -1,10 +1,10 @@
-# Soriano e Freitas Advocacia
+# Soriano Advocacia Advocacia
 
 > Escritório de advocacia com endereço físico em Guarujá, São Paulo, Brasil.
 
 ## Identificação
-- Nome: Soriano e Freitas Advocacia
-- Site: https://sorianoefreitas.vercel.app/
+- Nome: Soriano Advocacia Advocacia
+- Site: https://sorianoadvocacia.vercel.app/
 - Localização: Rua Antonio Miguel dos Santo, 95, Sala 1, Vila Santa Rosa, Guarujá - SP, 11431-050
 - Telefone e WhatsApp: +55 13 98184-0502
 - Instagram: https://www.instagram.com/soriano.advocacia/
@@ -25,7 +25,7 @@
 ## Contato
 - WhatsApp: https://wa.me/5513981840502
 - Instagram: https://www.instagram.com/soriano.advocacia/
-- Localização no Google Maps: https://www.google.com/maps/search/?api=1&query=Soriano%20e%20Freitas%20Jur%C3%ADdico%2C%20Guaruj%C3%A1
+- Localização no Google Maps: https://www.google.com/maps/search/?api=1&query=Soriano%20Advocacia%20Jur%C3%ADdico%2C%20Guaruj%C3%A1
 
 ## Observação
 As informações deste arquivo resumem os dados publicados no site. Confirme diretamente com o escritório a disponibilidade, o escopo e a abrangência de cada serviço.
